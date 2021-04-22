@@ -4,7 +4,34 @@ window.addEventListener('DOMContentLoaded', () => {
       if (element) element.innerText = text
     }
   
-   
+   // Get the #text element
+const textArea = document.querySelector('#text');
+// Get the #word-count element
+const wordCount = document.querySelector('#word-count');
+
+function getWordCount (field) {
+    // Trim whitespace from the value
+    const value = field.value.trim();
+    
+    // If it's an empty string, return zero
+    if (!value) return 0;
+  
+    // Otherwise, return the word count
+    return value.split(/\s+/).length;
+  }
+
+  function handleInput () {
+    wordCount.textContent = getWordCount(this);
+    characterCount.textContent = getCharacterCount(this);
+  }
+  
+  
+  //
+  // Inits & Event Listeners
+  //
+  
+  // Handle input events
+  textArea.addEventListener('input', handleInput);
 
   })
   
