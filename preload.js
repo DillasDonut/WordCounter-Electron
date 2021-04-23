@@ -6,7 +6,8 @@ window.addEventListener('DOMContentLoaded', () => {
   
    // Get the #text element
 const textArea = document.querySelector('#text');
-// Get the #word-count element
+// Get the #word-count and #char-count elements
+const characterCount = document.querySelector('#char-count');
 const wordCount = document.querySelector('#word-count');
 
 function getWordCount (field) {
@@ -19,6 +20,11 @@ function getWordCount (field) {
     // Otherwise, return the word count
     return value.split(/\s+/).length;
   }
+
+  function getCharacterCount (field) {
+    return field.value.length;
+  }
+  
 
   function handleInput () {
     wordCount.textContent = getWordCount(this);
